@@ -1,0 +1,54 @@
+::before,
+::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* variable define in root */
+:root {
+  --board-padding: 2vmin;
+  --board-border: 1vmin;
+}
+
+body {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-size: 7.5vmin;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(var(--board-row-column), var(--cell-size));
+  grid-template-rows: repeat(var(--board-row-column), var(--cell-size));
+  background-color: rgb(194, 194, 194);
+  gap: 2vmin;
+  padding: var(--board-padding);
+  border: var(--board-border);
+  position: relative;
+  border-radius: var(--board-padding);
+}
+
+.cell {
+  background-color: #aaa;
+  border-radius: 1vmin;
+}
+
+.tiles {
+  /* --x: 1;
+  --y: 3; */
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 1vmin;
+  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  background-color: hsl(40, 50%, var(--tiles-background-lightness));
+  color: hsl(90, 25%, var(--tiles-text-lightness));
+  transition: 100ms ease-in-out;
+}
