@@ -16,6 +16,7 @@ const setUpInput = () => {
 const handlePress = (event) => {
   switch (event.key) {
     case "ArrowUp":
+    case "w":
       if (!canMoveUp()) {
         setUpInput();
         return;
@@ -23,6 +24,7 @@ const handlePress = (event) => {
       moveUp();
       break;
     case "ArrowDown":
+    case "s":
       if (!canMoveDown()) {
         setUpInput();
         return;
@@ -30,6 +32,7 @@ const handlePress = (event) => {
       moveDown();
       break;
     case "ArrowLeft":
+    case "a":
       if (!canMoveLeft()) {
         setUpInput();
         return;
@@ -37,6 +40,7 @@ const handlePress = (event) => {
       moveLeft();
       break;
     case "ArrowRight":
+    case "d":
       if (!canMoveRight()) {
         setUpInput();
         return;
