@@ -15,22 +15,26 @@ export default class Tile {
     return this.#value;
   }
 
-  /* --tiles-background-lightness: 90%;
-  --tiles-text-lightness: 20%; */
-
   set value(v) {
     this.#value = v;
     this.#tileElement.textContent = v;
     const power = Math.log2(v);
-    const backgroundLightness = 100 - power * 6;
+    const backgroundLightness =
+      power > 5 ? 100 - (power - 4) * 9 : 100 - power * 9;
+    const backgroundColor = power > 5 ? 70 : 20;
+
     const textLightness = 20;
     this.#tileElement.style.setProperty(
       "--tiles-background-lightness",
       `${backgroundLightness}%`
     );
     this.#tileElement.style.setProperty(
+      "--tiles-background-color",
+      `${backgroundColor}`
+    );
+    this.#tileElement.style.setProperty(
       "--tiles-text-lightness",
-      `${power > 4 ? "100%" : textLightness}`
+      `${power > 2 ? "100%" : textLightness}`
     );
   }
 

@@ -48,6 +48,7 @@ body {
 .tiles {
   /* --x: 1;
   --y: 3; */
+  font-weight: 600;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -57,7 +58,11 @@ body {
   border-radius: 1vmin;
   top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
-  background-color: hsl(10, 50%, var(--tiles-background-lightness));
+  background-color: hsl(
+    var(--tiles-background-color),
+    50%,
+    var(--tiles-background-lightness)
+  );
   color: hsl(90, 25%, var(--tiles-text-lightness));
   transition: 100ms ease-in-out;
 }
