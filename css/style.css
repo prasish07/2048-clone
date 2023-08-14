@@ -60,7 +60,7 @@ body {
   left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   background-color: hsl(
     var(--tiles-background-color),
-    50%,
+    100%,
     var(--tiles-background-lightness)
   );
   color: hsl(90, 25%, var(--tiles-text-lightness));

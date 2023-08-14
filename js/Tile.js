@@ -20,8 +20,8 @@ export default class Tile {
     this.#tileElement.textContent = v;
     const power = Math.log2(v);
     const backgroundLightness =
-      power > 5 ? 100 - (power - 4) * 9 : 100 - power * 9;
-    const backgroundColor = power > 5 ? 78 : 20;
+      power > 5 ? 100 - (power - 3) * 9 : 100 - power * 9;
+    const backgroundColor = power > 5 ? 60 : 30;
 
     const textLightness = 20;
     this.#tileElement.style.setProperty(
