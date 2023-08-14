@@ -2,6 +2,7 @@ import Grids from "./Grids.js";
 import Tile from "./Tile.js";
 
 const board = document.getElementById("board");
+const gameOver = document.querySelector(".game-over");
 
 const grid = new Grids(board);
 
@@ -53,11 +54,30 @@ const handlePress = (event) => {
 
   // can if any movement is possible
   if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
-    alert(`You have lost.`);
+    // alert(`You have lost.`);
+    gameOver.style.display = "flex";
+
     return;
   }
   setUpInput();
 };
+
+// Restarting the game
+let restartBtn = document.querySelector(".btn");
+restartBtn.addEventListener("click", () => {
+  grid.cells.forEach((cell) => {
+    cell.tile = null;
+    cell.mergeTile = null;
+  });
+  const tiles = board.querySelectorAll(".tiles");
+  tiles.forEach((tile) => tile.remove());
+  gameOver.style.display = "none";
+
+  // Create new tiles and start the game
+  grid.randomEmptyCell().tile = new Tile(board);
+  grid.randomEmptyCell().tile = new Tile(board);
+  setUpInput();
+});
 
 setUpInput();
 
