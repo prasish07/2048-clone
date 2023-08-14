@@ -1,9 +1,6 @@
 const gridSize = 4;
 const cellSize = 20;
 const cellGap = 2;
-let scoreValue = 0;
-let score = document.querySelector(".score-value");
-score.innerHTML = scoreValue;
 
 // Class that get the grid property and create gird elements
 export default class Grids {
@@ -102,8 +99,11 @@ class Cell {
   }
 
   mergeTiles() {
+    let score = document.querySelector(".score-value");
+    let scoreValue = score.textContent;
     if (this.tile == null || this.mergeTile == null) return;
     this.tile.value = this.tile.value + this.mergeTile.value;
+    scoreValue = parseInt(scoreValue);
     scoreValue += parseInt(this.tile.value);
     score.innerHTML = scoreValue;
 

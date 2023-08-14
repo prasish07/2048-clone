@@ -3,6 +3,7 @@ import Tile from "./Tile.js";
 
 const board = document.getElementById("board");
 const gameOver = document.querySelector(".game-over");
+let score = document.querySelector(".score-value");
 
 const grid = new Grids(board);
 
@@ -81,6 +82,7 @@ restartBtn.addEventListener("click", () => {
   grid.randomEmptyCell().tile = new Tile(board);
   grid.randomEmptyCell().tile = new Tile(board);
   setUpInput();
+  score.textContent = 0;
 });
 
 setUpInput();
