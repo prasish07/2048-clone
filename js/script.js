@@ -5,11 +5,8 @@ const board = document.getElementById("board");
 
 const grid = new Grids(board);
 
-// console.log(grid.randomEmptyCell());
-
 grid.randomEmptyCell().tile = new Tile(board);
 grid.randomEmptyCell().tile = new Tile(board);
-console.log(grid.cellsByColumn);
 
 const setUpInput = () => {
   window.addEventListener("keydown", handlePress, { once: true });

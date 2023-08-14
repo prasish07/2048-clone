@@ -3,10 +3,18 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /* variable define in root */
 :root {
   --board-padding: 2vmin;
   --board-border: 1vmin;
+}
+.score {
+  text-align: center;
 }
 
 body {
