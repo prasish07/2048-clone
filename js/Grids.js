@@ -26,8 +26,11 @@ export default class Grids {
   }
 
   randomEmptyCell() {
-    const randomIndex = Math.floor(Math.random() * this.#emptyCells.length);
-    return this.#emptyCells[randomIndex];
+    const emptyCells = this.#emptyCells;
+    if (emptyCells.length === 0) return null;
+
+    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+    return emptyCells[randomIndex];
   }
 
   get cellsByColumn() {
