@@ -14,6 +14,7 @@ const setUpInput = () => {
   window.addEventListener("keydown", handlePress, { once: true });
 };
 
+// Event listener with (up,down,right,left=> arrow and wsad => key) to move the tile
 const handlePress = (event) => {
   switch (event.key) {
     case "ArrowUp":
@@ -59,9 +60,7 @@ const handlePress = (event) => {
 
   // can if any movement is possible
   if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
-    // alert(`You have lost.`);
     gameOver.style.display = "flex";
-
     return;
   }
   setUpInput();
@@ -101,6 +100,7 @@ const moveRight = () => {
   return slideTiles(grid.cellsByRow.map((row) => [...row].reverse()));
 };
 
+// Moving the tile
 const slideTiles = (cells) => {
   cells.forEach((group) => {
     for (let i = 1; i < group.length; i++) {
@@ -138,6 +138,7 @@ const canMoveRight = () => {
   return canMove(grid.cellsByRow.map((row) => [...row].reverse()));
 };
 
+// checking if the move is possible or not
 const canMove = (cells) => {
   return cells.some((group) => {
     return group.some((cell, index) => {

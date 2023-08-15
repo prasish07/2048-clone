@@ -21,10 +21,12 @@ export default class Grids {
     return this.#cells;
   }
 
+  // Getting all the empty cells
   get #emptyCells() {
     return this.#cells.filter((cell) => cell.tile == null);
   }
 
+  // Choosing one from empty cells randomly
   randomEmptyCell() {
     const emptyCells = this.#emptyCells;
     if (emptyCells.length === 0) return null;
@@ -33,6 +35,7 @@ export default class Grids {
     return emptyCells[randomIndex];
   }
 
+  // Organize by column
   get cellsByColumn() {
     return this.#cells.reduce((cellGrid, cell) => {
       cellGrid[cell.x] = cellGrid[cell.x] || [];
@@ -41,6 +44,7 @@ export default class Grids {
     }, []);
   }
 
+  // Organize by row
   get cellsByRow() {
     return this.#cells.reduce((cellGrid, cell) => {
       cellGrid[cell.y] = cellGrid[cell.y] || [];
@@ -50,7 +54,6 @@ export default class Grids {
   }
 }
 
-// Class that get the cell x and y
 class Cell {
   // setting the private here also
   #x;
@@ -64,6 +67,7 @@ class Cell {
     this.#cellElement = cellElement;
   }
 
+  // Class that get the cell x and y
   get x() {
     return this.#x;
   }
