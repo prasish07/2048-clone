@@ -80,6 +80,7 @@ class Cell {
     return this.#tile;
   }
 
+  // Set the tite of the cell
   set tile(value) {
     this.#tile = value;
     if (value == null) return;
@@ -87,6 +88,7 @@ class Cell {
     this.#tile.y = this.#y;
   }
 
+  // Getting the merge tile
   get mergeTile() {
     return this.#mergeTile;
   }
@@ -98,6 +100,7 @@ class Cell {
     this.#mergeTile.y = this.#y;
   }
 
+  // Checking if the next tile can be move to another tile
   canAccept(tile) {
     return (
       this.tile == null ||
@@ -105,6 +108,7 @@ class Cell {
     );
   }
 
+  // Merging the value of the tile and deleting the mergeTile value
   mergeTiles() {
     let score = document.querySelector(".score-value");
     let scoreValue = score.textContent;
